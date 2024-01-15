@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger O'Clock - Table Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px ;
+            font-size: 20px;
+        }
+
+        input {
+            width: 400px;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .booking-status {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body background="booking.jpg">
+    <pre><SPan style="color: white;font-size: 50px;font-family:Georgia, 'Times New Roman', Times, serif;"> BURGER <span style="color: yellow;">O'CLOCK</span></span>
+   
+    
+    <div class="container">
+        <h1>Burger O'Clock Table Booking</h1>
+        <form onsubmit="bookTable(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="enter your name" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" required>
+
+            <button type="submit">Book Table</button>
+        </form>
+        <p id="bookingStatus" class="booking-status"></p>
+    </div>
+
+    <script>
+        function bookTable(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            const bookingStatus = document.getElementById('bookingStatus');
+            bookingStatus.innerText = `Table booked for ${name} on ${date} at ${time}.`;
+        }
+    </script>
+</body>
+</html>
